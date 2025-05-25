@@ -11,61 +11,55 @@ const FeaturedProducts = () => {
       id: '1',
       title: 'Apple iPhone 15 Pro Max - Titanium Blue',
       price: 1199.99,
-      image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop',
+      image_url: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop',
       rating: 4.8,
-      reviews: 2847,
-      seller: 'TechStore Pro',
-      isWishlisted: false
+      review_count: 2847,
+      category: 'Electronics'
     },
     {
       id: '2',
       title: 'Sony WH-1000XM5 Noise Canceling Headphones',
       price: 399.99,
-      image: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&h=400&fit=crop',
+      image_url: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&h=400&fit=crop',
       rating: 4.7,
-      reviews: 1523,
-      seller: 'Audio Elite',
-      isWishlisted: true
+      review_count: 1523,
+      category: 'Audio'
     },
     {
       id: '3',
       title: 'MacBook Pro 14" M3 Pro - Space Gray',
       price: 2499.99,
-      image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop',
+      image_url: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop',
       rating: 4.9,
-      reviews: 756,
-      seller: 'Apple Authorized',
-      isWishlisted: false
+      review_count: 756,
+      category: 'Computers'
     },
     {
       id: '4',
       title: 'Nike Air Jordan 1 Retro High OG',
       price: 170.00,
-      image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=400&h=400&fit=crop',
+      image_url: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=400&h=400&fit=crop',
       rating: 4.6,
-      reviews: 3291,
-      seller: 'Sneaker Palace',
-      isWishlisted: false
+      review_count: 3291,
+      category: 'Fashion'
     },
     {
       id: '5',
       title: 'Samsung 65" QLED 4K Smart TV',
       price: 1299.99,
-      image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop',
+      image_url: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop',
       rating: 4.5,
-      reviews: 892,
-      seller: 'Electronics Hub',
-      isWishlisted: false
+      review_count: 892,
+      category: 'Electronics'
     },
     {
       id: '6',
       title: 'Canon EOS R5 Mirrorless Camera',
       price: 3899.99,
-      image: 'https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=400&h=400&fit=crop',
+      image_url: 'https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=400&h=400&fit=crop',
       rating: 4.8,
-      reviews: 445,
-      seller: 'Camera Central',
-      isWishlisted: true
+      review_count: 445,
+      category: 'Photography'
     }
   ];
 
