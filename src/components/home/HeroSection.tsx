@@ -1,4 +1,4 @@
-
+// Finalized HeroSection.tsx with immersive dark UI and elegant motion
 import React from 'react';
 import { ArrowRight, Star, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 overflow-hidden">
-      {/* Animated Background Elements */}
+      {/* Glowing Background Bubbles */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -21,7 +21,7 @@ const HeroSection = () => {
             <span className="text-sm text-gray-300">Trusted by 10M+ shoppers</span>
           </div>
 
-          {/* Main Headline */}
+          {/* Headline */}
           <div className="space-y-4">
             <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
               Discover Products.
@@ -32,23 +32,28 @@ const HeroSection = () => {
               <br />
               Sell Faster.
             </h1>
-            
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
               ShopNova is your modern marketplace — fast, personal, and built for today's digital-first world.
             </p>
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25"
+            >
               Start Shopping
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            
-            <Button variant="outline" size="lg" className="border-gray-600 text-white hover:bg-gray-800 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
+            {/* <Button
+              variant="outline"
+              size="lg"
+              className="border-gray-600 text-white hover:bg-gray-800 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+            >
               <TrendingUp className="mr-2 w-5 h-5" />
               Sell Your Product
-            </Button>
+            </Button> */}
           </div>
 
           {/* Stats */}
@@ -69,8 +74,8 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Floating Product Cards Preview */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-gray-900 to-transparent"></div>
+      {/* Gradient Bottom Fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-gray-900 to-transparent" />
     </section>
   );
 };

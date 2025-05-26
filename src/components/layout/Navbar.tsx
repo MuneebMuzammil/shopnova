@@ -1,4 +1,4 @@
-
+// Finalized Navbar.tsx with premium dark theme and working search integration
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search, ShoppingCart, Heart, User, Menu, X } from 'lucide-react';
@@ -20,40 +20,30 @@ const Navbar = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(setSearchQuery(searchValue));
-    navigate('/explore');
+    if (searchValue.trim()) {
+      dispatch(setSearchQuery(searchValue));
+      navigate('/explore');
+    }
   };
 
   const cartItemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-gradient-to-br from-[#000000] via-[#434343] to-[#29323c] backdrop-blur-md border-b border-gray-800">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              ShopNova
-            </div>
+          <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            ShopNova
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <Link to="/explore" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Explore
-            </Link>
-            <Link to="/category/Electronics" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Electronics
-            </Link>
-            <Link to="/category/Fashion" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Fashion
-            </Link>
-            <Link to="/category/Gaming" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Gaming
-            </Link>
+            {['Explore', 'Electronics', 'Fashion', 'Gaming'].map((text, i) => (
+              <Link key={i} to={text === 'Explore' ? '/explore' : `/category/${text}`} className="text-gray-300 hover:text-white transition-colors">
+                {text}
+              </Link>
+            ))}
           </nav>
 
-          {/* Search Bar */}
           <form onSubmit={handleSearch} className="hidden md:flex flex-1 max-w-md mx-8">
             <div className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -62,74 +52,69 @@ const Navbar = () => {
                 placeholder="Search for anything..."
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
             </div>
           </form>
 
-          {/* Actions */}
           <div className="flex items-center space-x-4">
-            {/* Wishlist */}
             {isSignedIn && (
-              <Link to="/wishlist" className="relative p-2 hover:bg-gray-100 rounded-lg transition-colors">
-                <Heart className="w-5 h-5 text-gray-700" />
+              <Link to="/wishlist" className="relative p-2 hover:bg-white/10 rounded-lg transition-colors">
+                <Heart className="w-5 h-5 text-gray-300" />
                 {wishlistItems.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-md">
                     {wishlistItems.length}
                   </span>
                 )}
               </Link>
             )}
 
-            {/* Cart */}
             <button
               onClick={() => dispatch(toggleCart())}
-              className="relative p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              className="relative p-2 hover:bg-white/10 rounded-lg transition-colors"
             >
-              <ShoppingCart className="w-5 h-5 text-gray-700" />
+              <ShoppingCart className="w-5 h-5 text-gray-300" />
               {cartItemCount > 0 && (
                 <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+                  className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-md"
                 >
                   {cartItemCount}
                 </motion.span>
               )}
             </button>
 
-            {/* Auth */}
             {isSignedIn ? (
               <UserButton afterSignOutUrl="/" />
             ) : (
               <SignInButton mode="modal">
-                <Button variant="outline" size="sm">
+                <a href="/auth">
+                <Button className="bg-gray-800 border border-gray-600 text-white hover:bg-gray-700">
                   <User className="w-4 h-4 mr-2" />
                   Sign In
                 </Button>
+                </a>
               </SignInButton>
             )}
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
             >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMobileMenuOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden py-4 border-t border-gray-200"
+              className="md:hidden py-4 border-t border-gray-800"
             >
-              {/* Mobile Search */}
               <form onSubmit={handleSearch} className="mb-4">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -138,41 +123,22 @@ const Navbar = () => {
                     placeholder="Search for anything..."
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
                   />
                 </div>
               </form>
 
-              {/* Mobile Navigation */}
               <nav className="flex flex-col space-y-3">
-                <Link 
-                  to="/explore" 
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Explore
-                </Link>
-                <Link 
-                  to="/category/Electronics" 
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Electronics
-                </Link>
-                <Link 
-                  to="/category/Fashion" 
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Fashion
-                </Link>
-                <Link 
-                  to="/category/Gaming" 
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Gaming
-                </Link>
+                {['Explore', 'Electronics', 'Fashion', 'Gaming'].map((text, i) => (
+                  <Link
+                    key={i}
+                    to={text === 'Explore' ? '/explore' : `/category/${text}`}
+                    className="text-gray-300 hover:text-white transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {text}
+                  </Link>
+                ))}
               </nav>
             </motion.div>
           )}

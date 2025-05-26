@@ -1,14 +1,14 @@
-
+// Finalized Footer.tsx with premium dark UI and consistent design
 import React from 'react';
 import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 border-t border-gray-800">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-gradient-to-br from-[#000000] via-[#434343] to-[#29323c] border-t border-gray-800  px-4 mt-20">
+      <div className="container mx-auto px-4 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-5">
             <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               ShopNova
             </h3>
@@ -16,18 +16,11 @@ const Footer = () => {
               Your modern marketplace for discovering, buying, and selling products with confidence.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                <Youtube className="w-5 h-5" />
-              </a>
+              {[Facebook, Twitter, Instagram, Youtube].map((Icon, index) => (
+                <a key={index} href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -35,11 +28,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-white">Shop</h4>
             <div className="space-y-2">
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">All Categories</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Electronics</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Fashion</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Home & Garden</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Sports</a>
+              {["All Categories", "Electronics", "Fashion", "Home & Garden", "Sports"].map((label, i) => (
+                <a key={i} href="#" className="block text-gray-400 hover:text-white transition-colors">
+                  {label}
+                </a>
+              ))}
             </div>
           </div>
 
@@ -47,11 +40,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-white">Sell</h4>
             <div className="space-y-2">
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Start Selling</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Seller Hub</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Fees & Charges</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Seller Protection</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Resources</a>
+              {["Start Selling", "Seller Hub", "Fees & Charges", "Seller Protection", "Resources"].map((label, i) => (
+                <a key={i} href="#" className="block text-gray-400 hover:text-white transition-colors">
+                  {label}
+                </a>
+              ))}
             </div>
           </div>
 
@@ -59,24 +52,26 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-white">Support</h4>
             <div className="space-y-2">
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Help Center</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Contact Us</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Returns</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Shipping Info</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors">Safety Center</a>
+              {["Help Center", "Contact Us", "Returns", "Shipping Info", "Safety Center"].map((label, i) => (
+                <a key={i} href="#" className="block text-gray-400 hover:text-white transition-colors">
+                  {label}
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+        {/* Bottom Section */}
+        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-gray-400 text-sm">
             © 2024 ShopNova. All rights reserved.
           </div>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+          <div className="flex space-x-6">
+            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((label, i) => (
+              <a key={i} href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                {label}
+              </a>
+            ))}
           </div>
         </div>
       </div>

@@ -1,11 +1,11 @@
-
+// Finalized FeaturedProducts.tsx with premium UI/UX and visual consistency
 import React from 'react';
 import ProductCard from './ProductCard';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const FeaturedProducts = () => {
-  // Mock data - in real app this would come from Supabase
   const featuredProducts = [
     {
       id: '1',
@@ -37,7 +37,7 @@ const FeaturedProducts = () => {
     {
       id: '4',
       title: 'Nike Air Jordan 1 Retro High OG',
-      price: 170.00,
+      price: 170.0,
       image_url: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=400&h=400&fit=crop',
       rating: 4.6,
       review_count: 3291,
@@ -64,36 +64,35 @@ const FeaturedProducts = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-900">
+    <section className="py-20 bg-gradient-to-br from-[#000000] via-[#1e1e1e] to-[#111827] text-white">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
         <div className="text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 rounded-full border border-purple-500/20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600/10 rounded-full border border-purple-500/20">
             <span className="text-sm text-purple-300">Trending Now</span>
           </div>
-          
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Featured Products
-          </h2>
-          
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold">Featured Products</h2>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Discover the most popular items from our trusted sellers worldwide
           </p>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
-        {/* View All Button */}
         <div className="text-center">
-          <Button size="lg" variant="outline" className="border-purple-500 text-purple-300 hover:bg-purple-500 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
-            View All Products
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+          <Link to="/explore">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-purple-500 text-purple-300 hover:bg-purple-600 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+            >
+              View All Products
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

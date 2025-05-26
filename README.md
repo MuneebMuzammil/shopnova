@@ -1,73 +1,109 @@
-# Welcome to your Lovable project
+🛍️ ShopNova — Next-Gen eCommerce Marketplace
 
-## Project info
+**ShopNova** is a modern, full-featured eCommerce platform built with performance, personalization, and seamless user experience in mind. Leveraging a cutting-edge tech stack — including **React**, **TypeScript**, **Supabase**, and **Clerk** — ShopNova empowers users to explore products, shop smarter, and sell faster.
 
-**URL**: https://lovable.dev/projects/4e05a200-3118-4c2d-b1f9-9ae2062e0db4
 
-## How can I edit this code?
 
-There are several ways of editing your application.
+🚀 Key Features
 
-**Use Lovable**
+- ✨ **Beautiful UI/UX** — Responsive, minimal, and highly interactive design powered by Tailwind CSS and Shadcn UI  
+- 🔐 **User Authentication** — Secure login & signup with Clerk integration  
+- 🛒 **Shopping Cart & Checkout** — Fully functional cart, cart drawer, and multi-step checkout experience  
+- 💾 **Real-Time Database** — Powered by Supabase with real-time syncing and efficient queries  
+- ❤️ **Wishlist & Order History** — Save favorites and track past purchases  
+- ⚡ **Smooth Animations** — Enhanced transitions and UI motion with Framer Motion  
+- 🧠 **Global State Management** — Clean architecture using Redux Toolkit  
+- 🗂️ **Product Management** — Category-based browsing and detailed product views  
+- 📱 **Mobile-First Design** — 100% responsive and optimized for all devices  
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4e05a200-3118-4c2d-b1f9-9ae2062e0db4) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+🧱 Tech Stack
 
-**Use your preferred IDE**
+| Layer            | Technologies                                                                 |
+|------------------|-------------------------------------------------------------------------------|
+| Frontend         | React, TypeScript, Vite                                                      |
+| UI Framework     | Tailwind CSS, Shadcn UI                                                      |
+| State Management | Redux Toolkit                                                                |
+| Backend          | Supabase (PostgreSQL, Auth, Storage)                                         |
+| Auth             | Clerk                                                                        |
+| Routing          | React Router                                                                 |
+| Animations       | Framer Motion                                                                |
+| Dev Tools        | ESLint, PostCSS, Husky (optional), Prettier (optional)                       |
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+⚙️ Getting Started
 
-Follow these steps:
+📦 Prerequisites
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- Node.js v18+
+- npm or yarn
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+🧪 Local Development
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/shopnova-aether-market.git
+
+# 2. Navigate into the project directory
+cd shopnova-aether-market
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+ Environment Variables
+Create a .env file in the root directory:
 
-**Use GitHub Codespaces**
+.env example
+VITE_SUPABASE_URL=your-supabase-url
+VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+VITE_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+🏗️ Build for Production
 
-## What technologies are used for this project?
+npm run build
 
-This project is built with:
+🧹 Linting
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+npm run 
 
-## How can I deploy this project?
+🧠 Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/4e05a200-3118-4c2d-b1f9-9ae2062e0db4) and click on Share -> Publish.
+shopnova-aether-market/
+├── src/
+│   ├── components/       # Reusable components (UI, layout, etc.)
+│   ├── hooks/            # Custom React hooks
+│   ├── integrations/     # Clerk, Supabase setup
+│   ├── pages/            # Route-based views (Home, Product, Cart, etc.)
+│   ├── store/            # Redux slices and setup
+│   └── main.tsx          # App entry point
+├── public/               # Static assets
+├── .env                  # Environment variables
+├── tailwind.config.ts    # Tailwind configuration
+├── vite.config.ts        # Vite configuration
+└── README.md             # This file
 
-## Can I connect a custom domain to my Lovable project?
+🤝 Contributing
+We welcome contributions to make ShopNova better!
+Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for setup instructions, coding standards, and pull request guidelines.
 
-Yes, you can!
+📄 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for full details.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+🙏 Acknowledgments
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Shadcn UI](https://ui.shadcn.com/)
+- [Clerk](https://clerk.com/)
+- [Supabase](https://supabase.com/)
+- [Framer Motion](https://www.framer.com/motion/)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Built with ❤️ by the ShopNova team.
+
+Let me know if you'd like me to save this to a file or drop it in your project structure.

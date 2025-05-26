@@ -1,11 +1,12 @@
-
+// Redesigned CategoryPage.tsx with dark UI and elegant UX
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAppDispatch, useAppSelector } from '../hooks/useTypedSelector';
 import { setProducts, setSelectedCategory } from '../store/slices/productsSlice';
-import { supabase } from '../integrations/supabase/client';
+import supabase from '../integrations/supabase/client';
 import ProductCard from '../components/products/ProductCard';
+import Footer from '@/components/layout/Footer';
 
 const CategoryPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -25,22 +26,22 @@ const CategoryPage = () => {
       .select('*')
       .eq('category', category)
       .order('created_at', { ascending: false });
-    
+
     if (data && !error) {
       dispatch(setProducts(data));
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#000000] via-[#485563] to-[#29323c] pt-20 text-white">
+      <div className="container mx-auto px-4 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-10 text-center"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4 capitalize">{slug}</h1>
-          <p className="text-gray-600 text-lg">Browse our collection of {slug?.toLowerCase()} products</p>
+          <h1 className="text-4xl font-bold mb-3 capitalize">{slug}</h1>
+          <p className="text-lg text-gray-400">Browse our collection of {slug?.toLowerCase()} products</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -57,11 +58,12 @@ const CategoryPage = () => {
         </div>
 
         {filteredProducts.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">No products found in this category.</p>
+          <div className="text-center py-20">
+            <p className="text-lg text-gray-400">No products found in this category.</p>
           </div>
         )}
       </div>
+      <Footer/>
     </div>
   );
 };

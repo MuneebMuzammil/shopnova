@@ -1,9 +1,9 @@
-
+// Redesigned Wishlist.tsx with matching modern dark theme and elegant UI/UX
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import { useAppSelector } from '../hooks/useTypedSelector';
-import { supabase } from '../integrations/supabase/client';
+import supabase from '../integrations/supabase/client';
 import ProductCard from '../components/products/ProductCard';
 
 interface Product {
@@ -40,7 +40,7 @@ const Wishlist = () => {
       .from('products')
       .select('*')
       .in('id', wishlistItems);
-    
+
     if (data && !error) {
       setProducts(data);
     }
@@ -49,36 +49,34 @@ const Wishlist = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center pt-20">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div className="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-br from-[#000000] via-[#485563] to-[#29323c]">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
       </div>
     );
   }
 
   if (products.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50 pt-20">
-        <div className="container mx-auto px-4 py-16">
-          <div className="text-center">
-            <Heart className="w-24 h-24 text-gray-300 mx-auto mb-6" />
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">Your wishlist is empty</h1>
-            <p className="text-gray-600 mb-8">Save products you love to your wishlist</p>
-          </div>
+      <div className="min-h-screen bg-gradient-to-br from-[#000000] via-[#485563] to-[#29323c] pt-20">
+        <div className="container mx-auto px-4 py-16 text-center text-white">
+          <Heart className="w-20 h-20 text-gray-400 mx-auto mb-6" />
+          <h1 className="text-3xl font-bold mb-2">Your wishlist is empty</h1>
+          <p className="text-gray-400">Save products you love to your wishlist</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#000000] via-[#485563] to-[#29323c] pt-20 text-white">
+      <div className="container mx-auto px-4 py-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-10 text-center"
         >
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">My Wishlist</h1>
-          <p className="text-gray-600">{products.length} item{products.length !== 1 ? 's' : ''} saved</p>
+          <h1 className="text-4xl font-bold mb-2">My Wishlist</h1>
+          <p className="text-gray-400">{products.length} item{products.length !== 1 ? 's' : ''} saved</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

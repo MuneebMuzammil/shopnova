@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -22,6 +21,7 @@ import Profile from "./pages/Profile";
 import AuthPage from "./pages/AuthPage";
 import NotFound from "./pages/NotFound";
 
+
 // Components
 import Navbar from "./components/layout/Navbar";
 import CartDrawer from "./components/cart/CartDrawer";
@@ -34,8 +34,15 @@ const App = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (isLoaded) {
-      dispatch(setUser(user));
+    if (isLoaded && user) {
+      const mappedUser = {
+        id: user.id,
+        email: user.emailAddresses[0]?.emailAddress || '',
+        firstName: user.firstName || '',
+        lastName: user.lastName || '',
+        // Add other required fields here
+      };
+      dispatch(setUser(mappedUser));
     }
   }, [user, isLoaded, dispatch]);
 
@@ -75,6 +82,7 @@ const App = () => {
                   <Profile />
                 </ProtectedRoute>
               } />
+           
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>

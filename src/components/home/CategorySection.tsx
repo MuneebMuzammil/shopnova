@@ -56,7 +56,8 @@ const CategorySection = () => {
 
   return (
     <section className="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
-      <div className="container mx-auto px-4">
+      {/* <div className="container mx-auto px-4"> */}
+      <div className="group relative p-6 bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700 hover:border-transparent transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl cursor-pointer">
         {/* Section Header */}
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white">
