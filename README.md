@@ -104,6 +104,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [Supabase](https://supabase.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 
-Built with ❤️ by the ShopNova team.
+Built with ❤️ by Muneeb Muzammil.
 
 Let me know if you'd like me to save this to a file or drop it in your project structure.
