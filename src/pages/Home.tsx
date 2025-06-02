@@ -15,6 +15,7 @@ import {
   Watch,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { Button } from '../components/ui/button';
 import ProductCard from '../components/products/ProductCard';
 import { useAppDispatch, useAppSelector } from '../hooks/useTypedSelector';
@@ -49,14 +50,23 @@ const Home = () => {
   ];
 
   const featuredProducts = products.slice(0, 6);
+const heroImages = ["/hero-1.jpg", "/hero-2.jpg", "/hero-3.jpg"]; // Add your images to /public
+const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+  }, 6000); // Change image every 6 seconds
+
+  return () => clearInterval(interval);
+}, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#000000] via-[#485563] to-[#29323c] text-white">
 
      {/* <div className="min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-black text-white animate-gradientX"> */}
       {/* Hero Section */}
       {/* <section className="relative py-24 px-4 bg-gradient-to-br from-[#0f172a] via-[#1e293b]/80 to-[#0f172a]"> */}
-      <section className="relative py-24 px-4 bg-gradient-to-br from-[#000000] to-[#434343]">
+      <section className="relative py-24 px-4 bg-black overflow-hidden">   {/* Ken Burns Background Slideshow */}   <div className="absolute inset-0 z-0">     {heroImages.map((img, idx) => (       <div         key={idx}         className={`absolute inset-0 transition-opacity duration-1000 ${           idx === currentImageIndex ? 'opacity-100' : 'opacity-0'         }`}       >         <img           src={img}           alt={`ShopNova Visual ${idx + 1}`}           className="w-full h-full object-cover animate-ken-burns"         />       </div>     ))}     <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" /> {/* Optional dark overlay */}   </div>
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
