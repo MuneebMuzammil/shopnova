@@ -2,7 +2,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@keyframes kenBurns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
 
+.ken-burns {
+  animation: kenBurns 6s ease-in-out infinite;
+} 
 @layer base {
   :root {
     --background: 0 0% 100%;

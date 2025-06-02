@@ -1,0 +1,12 @@
+@keyframes kenBurns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.ken-burns {
+  animation: kenBurns 6s ease-in-out infinite;
+} 
